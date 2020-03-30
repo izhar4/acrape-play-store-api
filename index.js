@@ -24,7 +24,7 @@ app.get('/appList', async (req, res) => {
 });
 
 
-app.get('/', async (req, res) => {
+app.get('/update', async (req, res) => {
     try {
         const listHtml = await getAxiosData(urlToScarp);
         const $ = cheerio.load(listHtml.data);
@@ -39,6 +39,9 @@ app.get('/', async (req, res) => {
     }
 });
 
+app.get('', async (req, res) => {
+    res.status(200).json('Connected');
+});
 getAxiosData = async (urlToScarp) => {
     return axios.get(urlToScarp);
 }
